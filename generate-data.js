@@ -16,14 +16,37 @@ const randomNCategories = (n) => {
   return categories;
 };
 
+const randomProducts = (categories, numOfProduct) => {
+  let products = [];
+  if (numOfProduct <= 0) {
+    return [];
+  }
+  categories.forEach((category) => {
+    Array.from(Array(numOfProduct)).forEach(() => {
+      let product = {
+        id: casual.uuid,
+        name: casual.name,
+        age: casual.age,
+        address: casual.address,
+        createAt: Date.now(),
+        updateAt: Date.now(),
+        categoryId: category.id,
+      };
+      products.push(product);
+    });
+  });
+  return products;
+};
+
 (() => {
   // 1. Create db
 
   let categories = randomNCategories(4);
+  let products = randomProducts(categories, 5);
 
   const db = {
     categories: categories,
-    products: [],
+    products: products,
     profile: {
       name: "Vuong Do",
       mobile: "0789200396",
