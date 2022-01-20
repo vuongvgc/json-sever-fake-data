@@ -1,0 +1,15 @@
+@baseUrl = http://localhost:3000/api
+@resoucesName = profile
+
+###
+# @name GETProfile
+GET {{baseUrl}}/{{resoucesName}}
+
+###
+# @name UPDATEProfile
+PATCH   {{baseUrl}}/{{resoucesName}}
+Content-Type: application/json
+
+{
+    "name": "vuong dev"
+}

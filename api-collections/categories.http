@@ -1,0 +1,61 @@
+#
+@baseUrl = http://localhost:3000/api
+@resoucesName=categories
+
+# Categories
+
+###
+# @name GETCategories
+###
+GET {{baseUrl}}/{{resoucesName}}
+
+###
+# @name GETDETAILCategories
+GET {{baseUrl}}/{{resoucesName}}/689bac44-637e-4814-bbbb-18f263bf463e
+
+###
+# @name FILTERCategories
+GET {{baseUrl}}/{{resoucesName}}?name=Tillman and Sons
+
+###
+# @name paginationCategories
+GET  {{baseUrl}}/{{resoucesName}}?_page=1&_limit=3
+
+###
+# @name sortCategories
+GET {{baseUrl}}/{{resoucesName}}?_sort=name&_order=asc
+
+###
+# @name OpertorCategories
+GET {{baseUrl}}/{{resoucesName}}?employee_gte=5
+
+### 
+# @name SearchCategories
+GET  {{baseUrl}}/{{resoucesName}}?name_like=Roob
+###
+# @name GETProdcut
+GET  {{baseUrl}}/{{resoucesName}}?_embed=products
+
+
+###
+# @name ADDCategory
+POST {{baseUrl}}/{{resoucesName}}
+Content-Type: application/json
+
+{
+    "name": "Máy tính bảng"
+}
+
+###
+# @name UpdateCategory
+PATCH  {{baseUrl}}/{{resoucesName}}/2
+Content-Type: application/json
+
+{
+    "name": "Máy tính bảng new"
+}
+###
+
+# @name DeleteCategory
+DELETE {{baseUrl}}/{{resoucesName}}/2
+ 

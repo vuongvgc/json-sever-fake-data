@@ -8,12 +8,17 @@ const randomNCategories = (n) => {
     let category = {
       id: casual.uuid,
       name: casual.company_name,
+      address: casual.address,
+      employee: getRandomInt(10),
       createAt: Date.now(),
       updateAt: Date.now(),
     };
     categories.push(category);
   });
   return categories;
+};
+const getRandomInt = (max) => {
+  return Math.floor(Math.random() * max);
 };
 
 const randomProducts = (categories, numOfProduct) => {
