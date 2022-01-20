@@ -10,8 +10,8 @@ const randomNCategories = (n) => {
       name: casual.company_name,
       address: casual.address,
       employee: getRandomInt(10),
-      createAt: Date.now(),
-      updateAt: Date.now(),
+      createdAt: Date.now(),
+      updatedAt: Date.now(),
     };
     categories.push(category);
   });
@@ -33,8 +33,8 @@ const randomProducts = (categories, numOfProduct) => {
         name: casual.name,
         age: casual.age,
         address: casual.address,
-        createAt: Date.now(),
-        updateAt: Date.now(),
+        createdAt: Date.now(),
+        updatedAt: Date.now(),
         categoryId: category.id,
       };
       products.push(product);

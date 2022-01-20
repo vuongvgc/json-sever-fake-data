@@ -43,16 +43,20 @@ POST {{baseUrl}}/{{resoucesName}}
 Content-Type: application/json
 
 {
-    "name": "Máy tính bảng"
+    "name": "Vuong Do LLC",
+    "address": "71 Ashtyn Via\nYundtport, MD 07020",
+    "employee": 3
 }
 
 ###
 # @name UpdateCategory
-PATCH  {{baseUrl}}/{{resoucesName}}/2
+PATCH  {{baseUrl}}/{{resoucesName}}/dpUp261
 Content-Type: application/json
 
 {
-    "name": "Máy tính bảng new"
+    "name": "Vuong Do LLC",
+    "address": "71 Ashtyn Via\nYundtport, MD 07020",
+    "employee": 5
 }
 ###
 
