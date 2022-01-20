@@ -4,7 +4,8 @@
   "description": "how to create fake api use json server",
   "main": "main.js",
   "dependencies": {
-    "json-server": "^0.17.0"
+    "json-server": "^0.17.0",
+    "query-string": "^7.1.0"
   },
   "devDependencies": {
     "casual": "^1.6.2",

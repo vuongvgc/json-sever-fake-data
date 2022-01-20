@@ -2,6 +2,7 @@ const jsonServer = require('json-server');
 const server = jsonServer.create();
 const router = jsonServer.router('db.json');
 const middlewares = jsonServer.defaults();
+const queryString = require('query-string');
 
 // Set default middlewares (logger, static, cors and no-cache)
 server.use(middlewares);
@@ -27,6 +28,32 @@ server.use((req, res, next) => {
   }
   next();
 });
+
+// Custom response
+router.render = (req, res) => {
+  // Get header
+  let header = res.getHeaders();
+  const totalCountHeader = header['x-total-count'];
+  // return data and pagination
+  if (req.method === 'GET' && totalCountHeader) {
+    // check if method get have _limit or _page => get query
+    const query = queryString.parse(req._parsedUrl.query);
+    console.log(query);
+    let result = {
+      data: res.locals.data,
+      pagination: {
+        pageSize: Number.parseInt(query._limit) || 1,
+        current: Number.parseInt(query._page) | 1,
+        total: Number.parseInt(totalCountHeader) | 0,
+      },
+    };
+    return res.jsonp(result);
+  }
+  // Otherwise return default
+  res.jsonp({
+    data: res.locals.data,
+  });
+};
 
 // Use default router
 server.use('/api', router);
