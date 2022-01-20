@@ -38,7 +38,6 @@ router.render = (req, res) => {
   if (req.method === 'GET' && totalCountHeader) {
     // check if method get have _limit or _page => get query
     const query = queryString.parse(req._parsedUrl.query);
-    console.log(query);
     let result = {
       data: res.locals.data,
       pagination: {
