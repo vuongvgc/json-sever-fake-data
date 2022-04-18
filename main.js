@@ -45,17 +45,19 @@ router.render = (req, res) => {
         current: Number.parseInt(query._page) | 1,
         total: Number.parseInt(totalCountHeader) | 0,
       },
+      message: 'Sever.getData.success',
     };
     return res.jsonp(result);
   }
   // Otherwise return default
   res.jsonp({
     data: res.locals.data,
+    message: 'Sever.getData.success',
   });
 };
 
 // Use default router
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 2000;
 server.use('/api', router);
 server.listen(PORT, () => {
   console.log('JSON Server is running');
