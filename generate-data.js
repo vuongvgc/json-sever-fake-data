@@ -1,6 +1,6 @@
-const casual = require("casual");
-const fs = require("fs");
-casual.locale = "vi";
+const casual = require('casual');
+const fs = require('fs');
+casual.locale = 'vi';
 const randomNCategories = (n) => {
   if (n <= 0) return [];
   let categories = [];
@@ -42,23 +42,37 @@ const randomProducts = (categories, numOfProduct) => {
   });
   return products;
 };
+const randomTodos = (n) => {
+  if (n <= 0) return [];
+  let todos = [];
+  Array.from(new Array(n)).forEach(() => {
+    let todo = {
+      id: casual.uuid,
+      content: casual._description,
+    };
+    todos.push(todo);
+  });
+  return todos;
+};
 
 (() => {
   // 1. Create db
 
   let categories = randomNCategories(4);
   let products = randomProducts(categories, 5);
+  let todos = randomTodos(10);
 
   const db = {
     categories: categories,
     products: products,
+    todos: todos,
     profile: {
-      name: "Vuong Do",
-      mobile: "0789200396",
+      name: 'Vuong Do',
+      mobile: '0789200396',
     },
   };
   // 2. Save in db.json
-  fs.writeFile("db.json", JSON.stringify(db), () => {
-    console.log("Generate data successfully");
+  fs.writeFile('db.json', JSON.stringify(db), () => {
+    console.log('Generate data successfully');
   });
 })();
