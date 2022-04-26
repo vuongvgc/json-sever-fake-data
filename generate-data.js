@@ -48,7 +48,7 @@ const randomTodos = (n) => {
   Array.from(new Array(n)).forEach(() => {
     let todo = {
       id: casual.uuid,
-      content: casual._description,
+      content: casual.description,
     };
     todos.push(todo);
   });
